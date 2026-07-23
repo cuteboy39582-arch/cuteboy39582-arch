@@ -56,3 +56,7 @@
   <img src="https://github-readme-stats.vercel.app/api?username=cuteboy39582-arch&show_icons=true&theme=tokyonight" width="48%" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cuteboy39582-arch&layout=compact&theme=tokyonight" width="48%" />
 </p>
+<!-- GitHub Contribution Snake Animation -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/cuteboy39582-arch/cuteboy39582-arch/dist/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Snake" width="100%" />
+</p>

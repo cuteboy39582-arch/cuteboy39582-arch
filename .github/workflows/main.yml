@@ -1,0 +1,40 @@
+name: Generate Snake Animation
+
+on:
+  # প্রতি ১২ ঘণ্টা পর পর অটোমেটিক রান হবে
+  schedule:
+    - cron: "0 */12 * * *"
+  
+  # ম্যানুয়ালি রান করার জন্য
+  workflow_dispatch:
+
+jobs:
+  generate:
+    permissions: 
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      # ১. রিপোজিটরি চেকআউট
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # ২. সাপের অ্যানিমেশন SVG ফাইল জেনারেট করা
+      - name: Generate Snake SVG
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: cuteboy39582-arch
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      # ৩. জেনারেট করা ফাইলটি 'dist' ব্রাঞ্চে সেভ করা
+      - name: Push Snake SVG to dist branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: dist
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
